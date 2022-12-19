@@ -2,8 +2,8 @@
 
 脱出ゲーム
 
-A new Flutter project.
 ![image](https://user-images.githubusercontent.com/94669015/208439461-fbcf5542-ab24-4d52-b85c-6b2d3a6d6896.png)
+
 
 DDD構成を気にした構成。
 
