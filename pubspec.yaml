@@ -22,5 +22,11 @@ dev_dependencies:
   flutter_flavorizr: ^2.0.0
   flutter_launcher_icons: "^0.11.0"
 
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/icon_door.png"
+
 flutter:
   uses-material-design: true
