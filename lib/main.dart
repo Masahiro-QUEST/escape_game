@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+// Package imports:
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   runApp(const MyApp());

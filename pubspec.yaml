@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.2.5
 
 dev_dependencies:
   flutter_test:
@@ -28,5 +29,12 @@ flutter_icons:
   ios: true
   image_path: "assets/icons/icon_door.png"
 
+# flutter pub run flutter_native_splash:create
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/splash/black_white.png
+  color_dark: "#222222"
+  image_dark: assets/splash/black_white.png
+  fullscreen: true
 flutter:
   uses-material-design: true
