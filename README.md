@@ -7,6 +7,7 @@
 
 DDD構成を気にした構成。
 
+クラス名は大文字で始める PascalCase スタイル
 
 ## Getting Started
 
