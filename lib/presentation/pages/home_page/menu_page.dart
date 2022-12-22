@@ -24,7 +24,7 @@ class GameCardList extends StatefulWidget {
 class _CardState extends State<GameCardList> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         // Card ボタンの色を変更する処理
         setState(() {
