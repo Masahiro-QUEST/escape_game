@@ -1,3 +1,4 @@
+import 'package:escape_from_me/presentation/pages/game_page/set_game_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -26,10 +27,12 @@ class _CardState extends State<GameCardList> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Card ボタンの色を変更する処理
-        setState(() {
-          widget._colors[widget.index] = Colors.red;
-        });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SetGamePage(widget.index),
+          ),
+        );
       },
       child: Card(
         color: widget._colors[widget.index % 4],
