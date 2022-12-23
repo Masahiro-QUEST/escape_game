@@ -11,7 +11,7 @@ class FirstStage extends StatelessWidget {
         title: const Text('Next page0'),
       ),
       body: const Center(
-        child: Text("最初のステージ"),
+        child: Text("最初のステージ_久樹"),
       ),
     );
   }
