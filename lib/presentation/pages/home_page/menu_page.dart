@@ -1,5 +1,7 @@
-import 'package:escape_from_me/presentation/pages/game_page/set_game_page.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+// Project imports:
+import 'package:escape_from_me/presentation/pages/game_page/set_game_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
