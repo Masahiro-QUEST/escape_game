@@ -11,18 +11,36 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.2.5
   simple_logger: ^1.9.0
+  flutter_svg: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^2.0.0
   flutter_flavorizr: ^2.0.0
   flutter_launcher_icons: "^0.11.0"
+  build_runner: ^2.3.3
+  flutter_gen_runner: ^5.0.3
+
+# assets
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+# flutter pub run build_runner build --delete-conflicting-outputs
+flutter_gen:
+  output: lib/gen/
+  line_length: 80
+  integrations:
+    flutter_svg: true
+  assets:
+    outputs:
+      style: dot-delimiter
 
 # flutter pub run flutter_launcher_icons:main
 flutter_icons:
@@ -37,5 +55,3 @@ flutter_native_splash:
   color_dark: "#222222"
   image_dark: assets/splash/black_white.png
   fullscreen: true
-flutter:
-  uses-material-design: true

@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:escape_from_me/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class FirstStage extends StatelessWidget {
@@ -10,9 +11,7 @@ class FirstStage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Next page0'),
       ),
-      body: const Center(
-        child: Text("最初のステージ_久樹"),
-      ),
+      body: Center(child: Assets.images.firstStageOpen.image()),
     );
   }
 }
