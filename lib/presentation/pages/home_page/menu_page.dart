@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:escape_from_me/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 // Project imports:
 import 'package:escape_from_me/presentation/pages/game_page/set_game_page.dart';
 
@@ -26,6 +27,11 @@ class GameCardList extends StatefulWidget {
 }
 
 class _CardState extends State<GameCardList> {
+  final List<SvgPicture> _images = [
+    Assets.images.darkRoom.svg(width: 150),
+    Assets.images.room.svg(width: 150),
+    Assets.images.blackWhiteRoom.svg(width: 150)
+  ];
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -38,8 +44,7 @@ class _CardState extends State<GameCardList> {
         );
       },
       child: Card(
-        child: Assets.images.room.svg(width: 150),
-        color: widget._colors[widget.index % 4],
+        child: _images[widget.index % 3],
       ),
     );
   }

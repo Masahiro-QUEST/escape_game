@@ -7,15 +7,19 @@
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal
 
-// Flutter imports:
 import 'package:flutter/widgets.dart';
-import 'package:flutter/services.dart';
-
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/blackWhiteRoom.svg
+  SvgGenImage get blackWhiteRoom =>
+      const SvgGenImage('assets/images/blackWhiteRoom.svg');
+
+  /// File path: assets/images/darkRoom.svg
+  SvgGenImage get darkRoom => const SvgGenImage('assets/images/darkRoom.svg');
 
   /// File path: assets/images/first_stage_open.png
   AssetGenImage get firstStageOpen =>
@@ -25,7 +29,7 @@ class $AssetsImagesGen {
   SvgGenImage get room => const SvgGenImage('assets/images/room.svg');
 
   /// List of all assets
-  List<dynamic> get values => [firstStageOpen, room];
+  List<dynamic> get values => [blackWhiteRoom, darkRoom, firstStageOpen, room];
 }
 
 class Assets {
