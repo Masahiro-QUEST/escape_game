@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:escape_from_me/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 // Project imports:
 import 'package:escape_from_me/presentation/pages/game_page/set_game_page.dart';
@@ -37,6 +38,7 @@ class _CardState extends State<GameCardList> {
         );
       },
       child: Card(
+        child: Assets.images.room.svg(width: 150),
         color: widget._colors[widget.index % 4],
       ),
     );
