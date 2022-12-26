@@ -21,6 +21,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/darkRoom.svg
   SvgGenImage get darkRoom => const SvgGenImage('assets/images/darkRoom.svg');
 
+  /// File path: assets/images/darkRoom_rock.svg
+  SvgGenImage get darkRoomRock =>
+      const SvgGenImage('assets/images/darkRoom_rock.svg');
+
   /// File path: assets/images/first_stage_open.png
   AssetGenImage get firstStageOpen =>
       const AssetGenImage('assets/images/first_stage_open.png');
@@ -29,7 +33,8 @@ class $AssetsImagesGen {
   SvgGenImage get room => const SvgGenImage('assets/images/room.svg');
 
   /// List of all assets
-  List<dynamic> get values => [blackWhiteRoom, darkRoom, firstStageOpen, room];
+  List<dynamic> get values =>
+      [blackWhiteRoom, darkRoom, darkRoomRock, firstStageOpen, room];
 }
 
 class Assets {

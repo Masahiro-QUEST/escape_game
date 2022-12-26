@@ -13,7 +13,34 @@ class FirstStage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Next page0'),
       ),
-      body: Center(child: Assets.images.room.svg(width: 500, height: 1000)),
+      body: GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('Enter password'),
+                  // ignore: prefer_const_constructors
+                  content: TextField(
+                      obscureText: true,
+                      maxLength: 4,
+                      keyboardType: TextInputType.number,
+                      keyboardAppearance: Brightness.dark),
+                  actions: <Widget>[
+                    ElevatedButton(
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          child: Assets.images.darkRoomRock.svg(
+            width: 500,
+          )),
     );
   }
 }
