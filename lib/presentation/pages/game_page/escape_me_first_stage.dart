@@ -10,6 +10,7 @@ class FirstStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff893e74),
       appBar: AppBar(
         title: const Text('Next page0'),
       ),
@@ -38,8 +39,8 @@ class FirstStage extends StatelessWidget {
               },
             );
           },
-          child: Assets.images.darkRoomRock.svg(
-            width: 500,
+          child: Assets.images.rockerRoom.svg(
+            width: 100,
           )),
     );
   }

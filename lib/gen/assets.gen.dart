@@ -11,6 +11,22 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsAnimationGen {
+  const $AssetsAnimationGen();
+
+  /// File path: assets/animation/key_rock.riv
+  String get keyRock => 'assets/animation/key_rock.riv';
+
+  /// File path: assets/animation/key_rock_slide.riv
+  String get keyRockSlide => 'assets/animation/key_rock_slide.riv';
+
+  /// File path: assets/animation/mixing_animations.riv
+  String get mixingAnimations => 'assets/animation/mixing_animations.riv';
+
+  /// List of all assets
+  List<String> get values => [keyRock, keyRockSlide, mixingAnimations];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -29,17 +45,37 @@ class $AssetsImagesGen {
   AssetGenImage get firstStageOpen =>
       const AssetGenImage('assets/images/first_stage_open.png');
 
+  /// File path: assets/images/keyRock.svg
+  SvgGenImage get keyRock => const SvgGenImage('assets/images/keyRock.svg');
+
+  /// File path: assets/images/keyRockOpen.svg
+  SvgGenImage get keyRockOpen =>
+      const SvgGenImage('assets/images/keyRockOpen.svg');
+
+  /// File path: assets/images/rockerRoom.svg
+  SvgGenImage get rockerRoom =>
+      const SvgGenImage('assets/images/rockerRoom.svg');
+
   /// File path: assets/images/room.svg
   SvgGenImage get room => const SvgGenImage('assets/images/room.svg');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [blackWhiteRoom, darkRoom, darkRoomRock, firstStageOpen, room];
+  List<dynamic> get values => [
+        blackWhiteRoom,
+        darkRoom,
+        darkRoomRock,
+        firstStageOpen,
+        keyRock,
+        keyRockOpen,
+        rockerRoom,
+        room
+      ];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsAnimationGen animation = $AssetsAnimationGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
