@@ -11,7 +11,29 @@ class ThirdStage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Next page1'),
       ),
-      body: GestureDetector(
+      body: InkWell(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('Message'),
+                content: TextField(
+                  decoration: InputDecoration(hintText: '暗号を入力してください'),
+                  keyboardType: TextInputType.number,
+                ),
+                actions: [
+                  TextButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
         child: const Center(
           child: RiveAnimation.asset("assets/animation/key_rock.riv"),
         ),
