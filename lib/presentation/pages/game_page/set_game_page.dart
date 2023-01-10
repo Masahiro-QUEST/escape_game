@@ -17,7 +17,7 @@ class SetGamePage extends StatelessWidget {
     } else if (index == 1) {
       return const SecondStage();
     } else {
-      return const ThirdStage();
+      return ThirdStage();
     }
   }
 }

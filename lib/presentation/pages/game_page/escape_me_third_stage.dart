@@ -2,9 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-class ThirdStage extends StatelessWidget {
-  const ThirdStage({super.key});
+class ThirdStage extends StatefulWidget {
+  @override
+  _ThirdStageState createState() => _ThirdStageState();
+}
 
+class _ThirdStageState extends State<ThirdStage> {
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +21,21 @@ class ThirdStage extends StatelessWidget {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: Text('Message'),
+                title: const Text('Message'),
                 content: TextField(
-                  decoration: InputDecoration(hintText: '暗号を入力してください'),
+                  decoration: const InputDecoration(hintText: '暗号を入力してください'),
                   keyboardType: TextInputType.number,
+                  controller: _passwordController,
                 ),
                 actions: [
                   TextButton(
                     child: Text('OK'),
                     onPressed: () {
+                      if (_passwordController.text == "1234") {
+                        print("Correct Password");
+                      } else {
+                        print("Uncorrect Password");
+                      }
                       Navigator.of(context).pop();
                     },
                   ),
