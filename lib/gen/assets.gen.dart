@@ -52,6 +52,10 @@ class $AssetsImagesGen {
   SvgGenImage get keyRockOpen =>
       const SvgGenImage('assets/images/keyRockOpen.svg');
 
+  /// File path: assets/images/rock_key_open_whole.svg
+  SvgGenImage get rockKeyOpenWhole =>
+      const SvgGenImage('assets/images/rock_key_open_whole.svg');
+
   /// File path: assets/images/rockerRoom.svg
   SvgGenImage get rockerRoom =>
       const SvgGenImage('assets/images/rockerRoom.svg');
@@ -67,6 +71,7 @@ class $AssetsImagesGen {
         firstStageOpen,
         keyRock,
         keyRockOpen,
+        rockKeyOpenWhole,
         rockerRoom,
         room
       ];
