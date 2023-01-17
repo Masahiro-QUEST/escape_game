@@ -11,50 +11,67 @@ class ThirdStage extends StatefulWidget {
 
 class _ThirdStageState extends State<ThirdStage> {
   final _passwordController = TextEditingController();
+  int _counter = 0;
+  int master_point = 0;
+
   bool _isCorrect = false;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Next page1'),
+        title: const Text("Stage3"),
       ),
-      body: InkWell(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text('Message'),
-                  content: TextField(
-                    decoration: const InputDecoration(hintText: '暗号を入力してください'),
-                    keyboardType: TextInputType.number,
-                    controller: _passwordController,
-                  ),
-                  actions: [
-                    TextButton(
-                      child: Text('OK'),
-                      onPressed: () {
-                        setState(() {
-                          _passwordController.text == "1234"
-                              ? _isCorrect = true
-                              : _isCorrect = false;
-                        });
-                        if (_passwordController.text == "1234") {
-                          print("Correct Password");
-                        } else {
-                          print("Uncorrect Password");
-                        }
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
+      body: Column(
+        children: <Widget>[
+          Text("$_counter"),
+          InkWell(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Message'),
+                      content: TextField(
+                        decoration:
+                            const InputDecoration(hintText: '暗号を入力してください'),
+                        keyboardType: TextInputType.number,
+                        controller: _passwordController,
+                      ),
+                      actions: [
+                        TextButton(
+                          child: Text('OK'),
+                          onPressed: () {
+                            setState(() {
+                              _passwordController.text == "1234"
+                                  ? _isCorrect = true
+                                  : _isCorrect = false;
+                            });
+                            if (_passwordController.text == "1234") {
+                              _incrementCounter();
+                              print("Correct Password");
+                            } else {
+                              print("Uncorrect Password");
+                            }
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
                 );
               },
-            );
-          },
-          child: _passwordController.text == "1234"
-              ? Assets.images.keyRockOpen.svg(width: 500)
-              : Assets.images.keyRock.svg(width: 500)),
+              child: _passwordController.text == "1234"
+                  ? Assets.images.keyRockOpen.svg(width: 500)
+                  : Assets.images.keyRock.svg(width: 500)),
+        ],
+      ),
     );
   }
 }
