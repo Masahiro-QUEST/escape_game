@@ -49,11 +49,11 @@ class _ThirdStageState extends State<ThirdStage> {
                           child: Text('OK'),
                           onPressed: () {
                             setState(() {
-                              _passwordController.text == "1234"
+                              _passwordController.text == "1964"
                                   ? _isCorrect = true
                                   : _isCorrect = false;
                             });
-                            if (_passwordController.text == "1234") {
+                            if (_passwordController.text == "1964") {
                               _incrementCounter();
                               print("Correct Password");
                             } else {
@@ -67,9 +67,17 @@ class _ThirdStageState extends State<ThirdStage> {
                   },
                 );
               },
-              child: _passwordController.text == "1234"
+              child: _passwordController.text == "1964"
                   ? Assets.images.keyRockOpen.svg(width: 500)
                   : Assets.images.keyRock.svg(width: 500)),
+          const Text(
+            "第18回\nオリンピック競技大会の年はいつでしょう",
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          )
         ],
       ),
     );

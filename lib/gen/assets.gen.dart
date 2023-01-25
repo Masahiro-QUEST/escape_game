@@ -45,6 +45,9 @@ class $AssetsImagesGen {
   AssetGenImage get firstStageOpen =>
       const AssetGenImage('assets/images/first_stage_open.png');
 
+  /// File path: assets/images/key.svg
+  SvgGenImage get key => const SvgGenImage('assets/images/key.svg');
+
   /// File path: assets/images/keyRock.svg
   SvgGenImage get keyRock => const SvgGenImage('assets/images/keyRock.svg');
 
@@ -69,6 +72,7 @@ class $AssetsImagesGen {
         darkRoom,
         darkRoomRock,
         firstStageOpen,
+        key,
         keyRock,
         keyRockOpen,
         rockKeyOpenWhole,
