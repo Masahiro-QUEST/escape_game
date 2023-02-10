@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_first_stage.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_second_stage.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_third_stage.dart';
+import 'package:escape_from_me/presentation/pages/game_page/escape_me_fourth_stage.dart';
 
 class SetGamePage extends StatelessWidget {
   SetGamePage(this.index);
@@ -16,8 +17,10 @@ class SetGamePage extends StatelessWidget {
       return const FirstStage();
     } else if (index == 1) {
       return const SecondStage();
-    } else {
+    } else if (index == 2) {
       return ThirdStage();
+    } else {
+      return const FourthStage();
     }
   }
 }

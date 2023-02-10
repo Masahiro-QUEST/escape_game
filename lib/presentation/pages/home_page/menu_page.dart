@@ -30,7 +30,8 @@ class _CardState extends State<GameCardList> {
   final List<SvgPicture> _images = [
     Assets.images.darkRoom.svg(width: 150),
     Assets.images.room.svg(width: 150),
-    Assets.images.blackWhiteRoom.svg(width: 150)
+    Assets.images.blackWhiteRoom.svg(width: 150),
+    Assets.images.fourth.svg(width: 150)
   ];
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class _CardState extends State<GameCardList> {
         );
       },
       child: Card(
-        child: _images[widget.index % 3],
+        child: _images[widget.index % 4],
       ),
     );
   }
