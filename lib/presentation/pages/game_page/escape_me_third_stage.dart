@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-
 import '../../../gen/assets.gen.dart';
 
 class ThirdStage extends StatefulWidget {

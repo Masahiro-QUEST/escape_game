@@ -20,11 +20,15 @@ class $AssetsAnimationGen {
   /// File path: assets/animation/key_rock_slide.riv
   String get keyRockSlide => 'assets/animation/key_rock_slide.riv';
 
+  /// File path: assets/animation/key_vault.riv
+  String get keyVault => 'assets/animation/key_vault.riv';
+
   /// File path: assets/animation/mixing_animations.riv
   String get mixingAnimations => 'assets/animation/mixing_animations.riv';
 
   /// List of all assets
-  List<String> get values => [keyRock, keyRockSlide, mixingAnimations];
+  List<String> get values =>
+      [keyRock, keyRockSlide, keyVault, mixingAnimations];
 }
 
 class $AssetsImagesGen {

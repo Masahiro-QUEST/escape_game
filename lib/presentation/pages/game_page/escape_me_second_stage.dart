@@ -1,19 +1,21 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import '../../../gen/assets.gen.dart';
 
 class SecondStage extends StatelessWidget {
   const SecondStage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String str = Assets.animation.keyVault;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Next page1'),
+        title: const Text("Second stage"),
       ),
       body: GestureDetector(
-        child: const Center(
-          child: RiveAnimation.asset("assets/animation/key_rock_slide.riv"),
+        child: Center(
+          child: RiveAnimation.asset(Assets.animation.keyVault),
         ),
       ),
     );
