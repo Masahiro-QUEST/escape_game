@@ -1,4 +1,6 @@
 PODS:
+  - battery_plus (1.0.0):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_native_splash (0.0.1):
     - Flutter
@@ -6,11 +8,14 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - battery_plus (from `.symlinks/plugins/battery_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - rive_common (from `.symlinks/plugins/rive_common/ios`)
 
 EXTERNAL SOURCES:
+  battery_plus:
+    :path: ".symlinks/plugins/battery_plus/ios"
   Flutter:
     :path: Flutter
   flutter_native_splash:
@@ -19,6 +24,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/rive_common/ios"
 
 SPEC CHECKSUMS:
+  battery_plus: 7851ab482c336dd101ae735dc9363f01e1223c7c
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   rive_common: 375e4e551a9b372e270b572b714484c4d55451a3

@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^1.1.0
   rive: ^0.10.0
   battery_plus: ^2.0.1
+  maze: ^3.0.0
 
 dev_dependencies:
   flutter_test:

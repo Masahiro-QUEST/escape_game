@@ -14,7 +14,7 @@ class SetGamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (index == 0) {
-      return const FirstStage();
+      return FirstStage();
     } else if (index == 1) {
       return const SecondStage();
     } else if (index == 2) {

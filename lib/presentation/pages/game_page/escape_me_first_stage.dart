@@ -1,47 +1,42 @@
-// Flutter imports:
-import 'package:escape_from_me/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:maze/maze.dart';
+
+import 'package:escape_from_me/presentation/pages/game_page/escape_me_second_stage.dart';
 
 class FirstStage extends StatelessWidget {
-  const FirstStage({super.key});
-  final double _width = 200;
-  final double _height = 150;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Maze Demo',
+        theme: ThemeData(
+            primarySwatch: Colors.orange,
+            scaffoldBackgroundColor: Colors.blueGrey),
+        home: MazeScreen());
+  }
+}
 
+class MazeScreen extends StatefulWidget {
+  @override
+  _MazeScreenState createState() => _MazeScreenState();
+}
+
+class _MazeScreenState extends State<MazeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff893e74),
-      appBar: AppBar(
-        title: const Text('Next page0'),
-      ),
-      body: GestureDetector(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Text('Enter password'),
-                  // ignore: prefer_const_constructors
-                  content: TextField(
-                      obscureText: true,
-                      maxLength: 4,
-                      keyboardType: TextInputType.number,
-                      keyboardAppearance: Brightness.dark),
-                  actions: <Widget>[
-                    ElevatedButton(
-                      child: Text('OK'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                );
-              },
-            );
-          },
-          child: Assets.images.rockerRoom.svg(
-            width: 100,
-          )),
-    );
+        body: SafeArea(
+            child: Maze(
+                player: MazeItem('assets/images/sumou.png', ImageType.asset),
+                columns: 6,
+                rows: 12,
+                wallThickness: 4.0,
+                wallColor: Theme.of(context).primaryColor,
+                finish: MazeItem('assets/images/goal.png', ImageType.asset),
+                onFinish: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondStage()),
+                  );
+                })));
   }
 }

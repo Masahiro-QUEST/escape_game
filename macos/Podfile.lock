@@ -1,19 +1,25 @@
 PODS:
+  - battery_plus_macos (0.0.1):
+    - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - rive_common (0.0.1):
     - FlutterMacOS
 
 DEPENDENCIES:
+  - battery_plus_macos (from `Flutter/ephemeral/.symlinks/plugins/battery_plus_macos/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - rive_common (from `Flutter/ephemeral/.symlinks/plugins/rive_common/macos`)
 
 EXTERNAL SOURCES:
+  battery_plus_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/battery_plus_macos/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
   rive_common:
     :path: Flutter/ephemeral/.symlinks/plugins/rive_common/macos
 
 SPEC CHECKSUMS:
+  battery_plus_macos: 6011b4f68b8845e0a7dda4787b90f455fb67c2d1
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   rive_common: 0ac58617cab300ee9bcf495e710d593578ff328b
 
