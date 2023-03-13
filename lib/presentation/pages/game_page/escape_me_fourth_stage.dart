@@ -5,6 +5,16 @@ import '../../../gen/assets.gen.dart';
 import 'package:battery_plus/battery_plus.dart';
 import 'dart:ffi';
 import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:rive/rive.dart';
+
+Artboard? _riveArtboard;
+StateMachineController? _controller;
+SMIInput<bool>? _isCharge;
+
+/// Is the animation currently playing?
+bool _isPlaying = false;
 
 class FourthStage extends StatefulWidget {
   const FourthStage({Key? key, this.title}) : super(key: key);
@@ -29,6 +39,24 @@ class _BatteryPageState extends State<FourthStage> {
   @override
   void initState() {
     super.initState();
+
+    rootBundle.load(Assets.animation.chargeDoor).then(
+      (data) async {
+        // Load the RiveFile from the binary data.
+        final file = RiveFile.import(data);
+
+        // The artboard is the root of the animation and gets drawn in the
+        // Rive widget.
+        final artboard = file.mainArtboard;
+        var controller = StateMachineController.fromArtboard(artboard, 'Door');
+        if (controller != null) {
+          artboard.addController(controller);
+          _isCharge = controller.findInput('isCharge');
+        }
+        setState(() => _riveArtboard = artboard);
+      },
+    );
+
     //Batteryの状態の変化を検知し、setStateするように設定
     _batteryStateSubscription =
         _battery.onBatteryStateChanged.listen((BatteryState state) {
@@ -43,21 +71,39 @@ class _BatteryPageState extends State<FourthStage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Plugin example app'),
+        title: const Text('Skills Machine'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            //バッテリーの状態を表示
-            Text("$BattLevel"),
-            Container(
-              width: 100,
-              height: 100,
-              color: selectColor('$_batteryState'),
-            )
-          ],
-        ),
+        child: _riveArtboard == null
+            ? const SizedBox()
+            : Stack(
+                children: [
+                  Positioned.fill(
+                    child: Rive(
+                      artboard: _riveArtboard!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Positioned.fill(
+                    bottom: 32,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          child: const Text('Charge'),
+                          onPressed: () => _isCharge?.value = true,
+                        ),
+                        const SizedBox(width: 10),
+                        ElevatedButton(
+                          child: const Text('Discharge'),
+                          onPressed: () => _isCharge?.value = false,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
       ),
     );
   }

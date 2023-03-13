@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsAnimationGen {
   const $AssetsAnimationGen();
 
+  /// File path: assets/animation/Charge_door.riv
+  String get chargeDoor => 'assets/animation/Charge_door.riv';
+
   /// File path: assets/animation/key_rock.riv
   String get keyRock => 'assets/animation/key_rock.riv';
 
@@ -28,7 +31,7 @@ class $AssetsAnimationGen {
 
   /// List of all assets
   List<String> get values =>
-      [keyRock, keyRockSlide, keyVault, mixingAnimations];
+      [chargeDoor, keyRock, keyRockSlide, keyVault, mixingAnimations];
 }
 
 class $AssetsImagesGen {
