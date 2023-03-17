@@ -20,7 +20,31 @@ class MazeScreen extends StatefulWidget {
   _MazeScreenState createState() => _MazeScreenState();
 }
 
-class _MazeScreenState extends State<MazeScreen> {
+class _MazeScreenState extends State<MazeScreen>
+    with SingleTickerProviderStateMixin {
+  double _opacity = 1;
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 50000),
+    )..repeat(reverse: true);
+    _animationController.addListener(() {
+      setState(() {
+        _opacity = _animationController.value;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,9 +66,13 @@ class _MazeScreenState extends State<MazeScreen> {
                 );
               }),
         ),
-        Text(
-          'ここに数字をフラッシュさせる',
-          style: TextStyle(fontSize: 24),
+        AnimatedOpacity(
+          opacity: _opacity,
+          duration: Duration(microseconds: 50000),
+          child: Text(
+            '1624',
+            style: TextStyle(fontSize: 24),
+          ),
         ),
       ],
     )));
