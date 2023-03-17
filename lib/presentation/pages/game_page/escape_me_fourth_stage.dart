@@ -1,13 +1,10 @@
 // Flutter imports:
-import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
 import '../../../gen/assets.gen.dart';
 import 'package:battery_plus/battery_plus.dart';
-import 'dart:ffi';
-import 'dart:async';
+import 'package:rive/rive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rive/rive.dart';
+import 'dart:async';
 
 Artboard? _riveArtboard;
 StateMachineController? _controller;

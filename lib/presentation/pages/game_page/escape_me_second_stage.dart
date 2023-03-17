@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import '../../../gen/assets.gen.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
 
 class SecondStage extends StatefulWidget {
   const SecondStage({Key? key}) : super(key: key);
@@ -11,26 +13,52 @@ class SecondStage extends StatefulWidget {
 }
 
 class _SecondStageState extends State<SecondStage> {
+  Artboard? _riveArtboard;
+  StateMachineController? _controller;
+  SMIInput<bool>? _isCorrect;
   bool _isCorrectPassword = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    rootBundle.load(Assets.animation.keyVault).then(
+      (data) async {
+        // Load the RiveFile from the binary data.
+        final file = RiveFile.import(data);
+
+        // The artboard is the root of the animation and gets drawn in the
+        // Rive widget.
+        final artboard = file.mainArtboard;
+        var controller = StateMachineController.fromArtboard(artboard, 'Vault');
+        if (controller != null) {
+          artboard.addController(controller);
+          _isCorrect = controller.findInput('isCollect');
+        }
+        setState(() => _riveArtboard = artboard);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Second stage"),
+        title: const Text('Skills Machine'),
       ),
-      body: GestureDetector(
-        onTap: () {
-          // Hide the keyboard when the user taps anywhere outside of the text field.
-          FocusScope.of(context).unfocus();
-        },
-        child: Center(
-          child: RiveAnimation.asset(
-            _isCorrectPassword
-                ? Assets.animation.keyVault
-                : Assets.animation.keyVault,
-          ),
-        ),
+      body: Center(
+        child: _riveArtboard == null
+            ? const SizedBox()
+            : Stack(
+                children: [
+                  Positioned.fill(
+                    child: Rive(
+                      artboard: _riveArtboard!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -44,7 +72,8 @@ class _SecondStageState extends State<SecondStage> {
                 onChanged: (password) {
                   // Check if the password is correct.
                   setState(() {
-                    _isCorrectPassword = (password == "correct_password");
+                    _isCorrectPassword = (password == "0");
+                    _isCorrect?.value = _isCorrectPassword;
                   });
                 },
               ),
