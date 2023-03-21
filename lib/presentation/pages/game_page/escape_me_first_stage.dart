@@ -4,6 +4,8 @@ import 'package:maze/maze.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_second_stage.dart';
 
 class FirstStage extends StatelessWidget {
+  const FirstStage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,12 +13,15 @@ class FirstStage extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.orange,
             scaffoldBackgroundColor: Colors.blueGrey),
-        home: MazeScreen());
+        home: const MazeScreen());
   }
 }
 
 class MazeScreen extends StatefulWidget {
+  const MazeScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MazeScreenState createState() => _MazeScreenState();
 }
 
@@ -30,7 +35,7 @@ class _MazeScreenState extends State<MazeScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 50000),
+      duration: const Duration(milliseconds: 50000),
     )..repeat(reverse: true);
     _animationController.addListener(() {
       setState(() {
@@ -62,14 +67,14 @@ class _MazeScreenState extends State<MazeScreen>
               onFinish: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SecondStage()),
+                  MaterialPageRoute(builder: (context) => const SecondStage()),
                 );
               }),
         ),
         AnimatedOpacity(
           opacity: _opacity,
-          duration: Duration(microseconds: 50000),
-          child: Text(
+          duration: const Duration(microseconds: 50000),
+          child: const Text(
             '1624',
             style: TextStyle(fontSize: 24),
           ),
