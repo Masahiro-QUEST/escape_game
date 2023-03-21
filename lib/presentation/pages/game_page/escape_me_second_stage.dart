@@ -66,14 +66,21 @@ class _SecondStageState extends State<SecondStage> {
           showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: const Text("Enter password"),
+              title: const Text("password = 0"),
               content: TextField(
                 obscureText: true,
                 onChanged: (password) {
                   // Check if the password is correct.
                   setState(() {
-                    _isCorrectPassword = (password == "0");
+                    // _isCorrectPassword = (password == "0");
+                    // _isCorrect?.value = _isCorrectPassword;
+                  });
+                },
+                onSubmitted: (submittedPass) {
+                  setState(() {
+                    _isCorrectPassword = (submittedPass == "0");
                     _isCorrect?.value = _isCorrectPassword;
+                    Navigator.pop(context);
                   });
                 },
               ),
