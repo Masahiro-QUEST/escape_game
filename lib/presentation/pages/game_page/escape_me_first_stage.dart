@@ -65,7 +65,7 @@ class _MazeScreenState extends State<MazeScreen>
               wallColor: Theme.of(context).primaryColor,
               finish: MazeItem('assets/images/goal.png', ImageType.asset),
               onFinish: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const SecondStage()),
                 );
