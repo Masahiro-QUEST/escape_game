@@ -1,24 +1,29 @@
-// Flutter imports:
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
-import '../../../gen/assets.gen.dart';
 
-class ThirdStage extends StatefulWidget {
+class ThirdStage extends StatelessWidget {
   @override
-  _ThirdStageState createState() => _ThirdStageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Random Number Generator',
+      home: RandomNumberScreen(),
+    );
+  }
 }
 
-//test
-class _ThirdStageState extends State<ThirdStage> {
-  final _passwordController = TextEditingController();
-  int _counter = 0;
-  int master_point = 0;
+class RandomNumberScreen extends StatefulWidget {
+  @override
+  _RandomNumberScreenState createState() => _RandomNumberScreenState();
+}
 
-  bool _isCorrect = false;
+class _RandomNumberScreenState extends State<RandomNumberScreen> {
+  int _randomNumber = 0;
+  final _random = Random();
 
-  void _incrementCounter() {
+  void _generateRandomNumber() {
     setState(() {
-      _counter++;
+      _randomNumber = _random.nextInt(100) + 1;
     });
   }
 
@@ -26,59 +31,28 @@ class _ThirdStageState extends State<ThirdStage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Stage3"),
+        title: Text('ランダム数字ジェネレーター'),
       ),
-      body: Column(
-        children: <Widget>[
-          Text("$_counter"),
-          InkWell(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text('Message'),
-                      content: TextField(
-                        decoration:
-                            const InputDecoration(hintText: '暗号を入力してください'),
-                        keyboardType: TextInputType.number,
-                        controller: _passwordController,
-                      ),
-                      actions: [
-                        TextButton(
-                          child: Text('OK'),
-                          onPressed: () {
-                            setState(() {
-                              _passwordController.text == "1964"
-                                  ? _isCorrect = true
-                                  : _isCorrect = false;
-                            });
-                            if (_passwordController.text == "1964") {
-                              _incrementCounter();
-                              print("Correct Password");
-                            } else {
-                              print("Uncorrect Password");
-                            }
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              child: _passwordController.text == "1964"
-                  ? Assets.images.keyRockOpen.svg(width: 500)
-                  : Assets.images.keyRock.svg(width: 500)),
-          const Text(
-            "第18回\nオリンピック競技大会の年はいつでしょう",
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'ランダムな数字:',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-          )
-        ],
+            SizedBox(height: 10),
+            Text(
+              '$_randomNumber',
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _generateRandomNumber,
+              child: Text('新しい数字を生成'),
+            ),
+          ],
+        ),
       ),
     );
   }
