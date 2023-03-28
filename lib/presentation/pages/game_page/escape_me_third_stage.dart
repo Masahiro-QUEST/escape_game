@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import '../../../gen/assets.gen.dart';
 
-//test
 class ThirdStage extends StatefulWidget {
   @override
   _ThirdStageState createState() => _ThirdStageState();
 }
 
+//test
 class _ThirdStageState extends State<ThirdStage> {
   final _passwordController = TextEditingController();
   int _counter = 0;
