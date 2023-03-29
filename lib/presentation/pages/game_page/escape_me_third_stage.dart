@@ -18,12 +18,17 @@ class RandomNumberScreen extends StatefulWidget {
 }
 
 class _RandomNumberScreenState extends State<RandomNumberScreen> {
-  int _randomNumber = 0;
+  int _randomNumber1 = 0;
+  int _randomNumber2 = 0;
+
   final _random = Random();
 
   void _generateRandomNumber() {
     setState(() {
-      _randomNumber = _random.nextInt(100) + 1;
+      _randomNumber1 = _random.nextInt(100) + 1;
+    });
+    setState(() {
+      _randomNumber2 = _random.nextInt(100) + 1;
     });
   }
 
@@ -43,7 +48,11 @@ class _RandomNumberScreenState extends State<RandomNumberScreen> {
             ),
             SizedBox(height: 10),
             Text(
-              '$_randomNumber',
+              '$_randomNumber1',
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              '$_randomNumber2',
               style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
