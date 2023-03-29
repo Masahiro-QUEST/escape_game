@@ -59,7 +59,29 @@ class _BatteryPageState extends State<FourthStage> {
         _battery.onBatteryStateChanged.listen((BatteryState state) {
       setState(() {
         _batteryState = state;
+        print('Battery state:${state}');
         getBattLevel();
+
+        switch (_batteryState) {
+          case BatteryState.charging:
+            _isCharge?.value = true;
+            break;
+
+          case BatteryState.full:
+            _isCharge?.value = true;
+            break;
+
+          case BatteryState.discharging:
+            _isCharge?.value = false;
+            break;
+
+          case BatteryState.unknown:
+            _isCharge?.value = false;
+            break;
+
+          default:
+            _isCharge?.value = false;
+        }
       });
     });
   }
@@ -68,7 +90,7 @@ class _BatteryPageState extends State<FourthStage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Skills Machine'),
+        title: const Text('Electronic Door'),
       ),
       body: Center(
         child: _riveArtboard == null
@@ -78,27 +100,27 @@ class _BatteryPageState extends State<FourthStage> {
                   Positioned.fill(
                     child: Rive(
                       artboard: _riveArtboard!,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  Positioned.fill(
-                    bottom: 32,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          child: const Text('Charge'),
-                          onPressed: () => _isCharge?.value = true,
-                        ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          child: const Text('Discharge'),
-                          onPressed: () => _isCharge?.value = false,
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Positioned.fill(
+                  //   bottom: 32,
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     crossAxisAlignment: CrossAxisAlignment.end,
+                  //     children: [
+                  //       ElevatedButton(
+                  //         child: const Text('Charge'),
+                  //         onPressed: () => _isCharge?.value = true,
+                  //       ),
+                  //       const SizedBox(width: 10),
+                  //       ElevatedButton(
+                  //         child: const Text('Discharge'),
+                  //         onPressed: () => _isCharge?.value = false,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
       ),

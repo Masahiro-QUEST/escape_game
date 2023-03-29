@@ -48,12 +48,22 @@ class $AssetsImagesGen {
   SvgGenImage get darkRoomRock =>
       const SvgGenImage('assets/images/darkRoom_rock.svg');
 
+  /// File path: assets/images/fifth.svg
+  SvgGenImage get fifth => const SvgGenImage('assets/images/fifth.svg');
+
+  /// File path: assets/images/find_the_difference_image.png
+  AssetGenImage get findTheDifferenceImage =>
+      const AssetGenImage('assets/images/find_the_difference_image.png');
+
   /// File path: assets/images/first_stage_open.png
   AssetGenImage get firstStageOpen =>
       const AssetGenImage('assets/images/first_stage_open.png');
 
   /// File path: assets/images/fourth.svg
   SvgGenImage get fourth => const SvgGenImage('assets/images/fourth.svg');
+
+  /// File path: assets/images/goal.png
+  AssetGenImage get goal => const AssetGenImage('assets/images/goal.png');
 
   /// File path: assets/images/key.svg
   SvgGenImage get key => const SvgGenImage('assets/images/key.svg');
@@ -76,19 +86,26 @@ class $AssetsImagesGen {
   /// File path: assets/images/room.svg
   SvgGenImage get room => const SvgGenImage('assets/images/room.svg');
 
+  /// File path: assets/images/sumou.png
+  AssetGenImage get sumou => const AssetGenImage('assets/images/sumou.png');
+
   /// List of all assets
   List<dynamic> get values => [
         blackWhiteRoom,
         darkRoom,
         darkRoomRock,
+        fifth,
+        findTheDifferenceImage,
         firstStageOpen,
         fourth,
+        goal,
         key,
         keyRock,
         keyRockOpen,
         rockKeyOpenWhole,
         rockerRoom,
-        room
+        room,
+        sumou
       ];
 }
 

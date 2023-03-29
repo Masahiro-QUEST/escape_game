@@ -6,6 +6,7 @@ import 'package:escape_from_me/presentation/pages/game_page/escape_me_first_stag
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_second_stage.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_third_stage.dart';
 import 'package:escape_from_me/presentation/pages/game_page/escape_me_fourth_stage.dart';
+import 'package:escape_from_me/presentation/pages/game_page/escape_me_fifth_stage.dart';
 
 class SetGamePage extends StatelessWidget {
   SetGamePage(this.index);
@@ -19,8 +20,10 @@ class SetGamePage extends StatelessWidget {
       return const SecondStage();
     } else if (index == 2) {
       return ThirdStage();
+    } else if (index == 3) {
+      return FourthStage();
     } else {
-      return const FourthStage();
+      return FifthStage();
     }
   }
 }
